@@ -1,7 +1,7 @@
 # 工作任务清单 (Work Task Planner)
 
 <p align="center">
-  <img src="V1.0/图标.png" alt="工作任务清单图标" width="120">
+  <img src="assets/icon.png" alt="工作任务清单图标" width="120">
 </p>
 
 <p align="center">
@@ -56,7 +56,7 @@
 
 前往 [Releases](https://github.com/jhtfly/work-task-planner/releases/latest) 下载最新版：
 
-1. 下载 `工作任务清单.exe`（单文件，无需安装、无需 Python 环境）；
+1. 下载 `work-task-planner-v1.0.0.exe`（单文件，无需安装、无需 Python 环境）；
 2. 放入任意**可写的文件夹**（建议避开 `C:\Program Files`，程序会在同级目录读写数据）；
 3. 双击运行。首次启动会自动创建 `工作任务`、`清单备份` 两个子目录及数据文件。
 
@@ -92,6 +92,7 @@ work-task-planner/
 │  ├─ 图标.ico / 图标.png
 │  └─ 工作任务/
 │     └─ 工作任务示例表.xlsx  # 脱敏示例数据
+├─ assets/icon.png           # README 用图标
 ├─ docs/需求说明.md          # 功能需求书（脱敏版）
 ├─ requirements.txt
 ├─ LICENSE
