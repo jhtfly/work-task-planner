@@ -62,7 +62,7 @@
 2. 放入任意**可写的文件夹**（建议避开 `C:\Program Files`，程序会在同级目录读写数据）；
 3. 双击运行。首次启动会自动创建 `工作任务`、`清单备份` 两个子目录及数据文件。
 
-> 兼容 Windows 7 SP1 及以上。程序以 Python 3.8.10 构建，规避 Win7 下 `api-ms-win-core-path-l1-1-0.dll` 缺失的兼容性问题。
+> 兼容 **64 位** Windows 7 SP1 及以上（不支持 32 位系统）。程序以 Python 3.8.10 64 位构建，规避 Win7 下 `api-ms-win-core-path-l1-1-0.dll` 缺失的兼容性问题。
 
 ## Excel 自动导入
 
@@ -122,7 +122,13 @@ cd V1.0
 pyinstaller -F -w -i 图标.ico --add-data "图标.ico;." --name "工作任务清单" main.py
 ```
 
-产物位于 `V1.0/dist/工作任务清单.exe`。若要兼容 Windows 7，请使用 Python 3.8.10 环境打包。
+产物位于 `V1.0/dist/工作任务清单.exe`。
+
+打包注意事项：
+
+- 若要兼容 Windows 7，必须使用 **Python 3.8.10 64 位** 环境（3.9+ 在 Win7 下会因 `api-ms-win-core-path-l1-1-0.dll` 缺失而无法启动）；
+- 该 Python 环境必须自带 **tkinter**（官方安装包默认包含；部分精简版或嵌入式分发包不含，打包后会因 `missing module named tkinter` 而无法运行，可用 `python -c "import tkinter"` 先行验证）；
+- 打包环境需安装 `openpyxl`，否则生成的 exe 缺失 Excel 导入能力。
 
 ## 数据与隐私
 
